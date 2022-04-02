@@ -1,0 +1,47 @@
+ 	.syntax unified
+ 	.cpu cortex-m3
+ 	.thumb
+ 	.align 2
+ 	.global	classification
+ 	.thumb_func
+
+@ CG2028 Assignment, Sem 2, AY 2021/21
+@ (c) CG2028 Teaching Team, ECE NUS, 2021
+
+@ student 1: Name: , Matriculation No.:
+@ student 2: Name: , Matriculation No.:
+@ eg: student 1: Name: John Doe , Matriculation No.: A021234N
+
+@Register map
+@R0 - points, returns class
+@R1 - centroids
+@R2 - classifications
+@R3 - point x-position
+@R4 - point y-position
+@R5 - centroid 1 count
+@R6 - centroid 2 count
+@....
+
+classification:
+@ PUSH / save (only those) registers which are modified by your function
+		PUSH {R1-R7,R14}
+@ parameter registers need not be saved.
+
+@ write asm function body here
+test:	LDR R3, [R1], #4
+		LDR R4, [R1], #4
+
+
+@ branch to SUBROUTINE for illustration only
+
+@ prepare value to return (class) to C program in R0
+@ return value
+		MOV R0, R3
+@ POP / restore original register values. DO NOT save or restore R0. Why?
+		POP {R1-R7,R14}
+@ return to C program
+		BX	LR
+
+@label: .word value
+
+@.lcomm label num_bytes

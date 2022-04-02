@@ -1,0 +1,81 @@
+ 	.syntax unified
+ 	.cpu cortex-m3
+ 	.thumb
+ 	.align 2
+ 	.global	classification
+ 	.thumb_func
+
+@ CG2028 Assignment, Sem 2, AY 2021/21
+@ (c) CG2028 Teaching Team, ECE NUS, 2021
+
+@ student 1: Name: , Matriculation No.:
+@ student 2: Name: , Matriculation No.:
+@ eg: student 1: Name: John Doe , Matriculation No.: A021234N
+
+@Register map
+@R0 - points, returns class
+@R1 - centroids
+@R2 - loop index
+@R3 - point x-position
+@R4 - point y-position
+@R5 - centroid x-position
+@R6 - centroid y-position, squared distance to centroid 1
+@R7 - squared distance to centroid 0
+@R8 - count of classification 0
+@R9 - count of classification 1
+@....
+
+classification:
+@ PUSH / save (only those) registers which are modified by your function
+		PUSH {R1-R9,R14}
+@ parameter registers need not be saved.
+		MOV R2, #8
+		MOV R8, #0 @init count of points classified as 0
+		MOV R9, #0 @init count of points classified as 0
+
+@ write asm function body here
+loop:	LDR R3, [R0], #4 @load point x-pos into R3
+		LDR R4, [R0], #4 @load point y-pos into R4
+
+		@calculate squared Euclidean distance between point and centroid 0
+		LDR R5, [R1] @load centroid 0 x-pos into R5
+		LDR R6, [R1, #4] @load centroid 0 x-pos into R6
+
+		SUB R5, R3 @ difference in x-pos
+		SUB R6, R4 @ difference in y-pos
+		MUL	R5, R5 @ squared x distance
+		MUL	R6, R6 @ squared y distance
+
+		ADD R7, R5, R6 @ squared Euclidean distance
+
+		@calculate squared Euclidean distance between point and centroid 1
+		LDR R5, [R1, #8] @load centroid 1 x-pos into R5
+		LDR R6, [R1, #12] @load centroid 1 x-pos into R6
+
+		SUB R5, R3 @ difference in x-pos
+		SUB R6, R4 @ difference in y-pos
+		MUL	R5, R5 @ squared x distance
+		MUL	R6, R6 @ squared y distance
+
+		ADD R6, R5, R6 @ squared Euclidean distance
+
+		CMP R6, R7 @ R6 - R7
+		ITE PL
+			ADDPL R8, #1
+			ADDMI R9, #1
+
+		SUBS R2, #1
+		BGT loop
+
+
+@ prepare value to return (class) to C program in R0
+@ return value
+finish: MOV R0, R8
+@ POP / restore original register values. DO NOT save or restore R0. Why?
+		POP {R1-R9,R14}
+@ return to C program
+		BX	LR
+
+@label: .word value
+
+@.lcomm label num_bytes
