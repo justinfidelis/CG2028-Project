@@ -64,7 +64,7 @@ loop:	LDR R3, [R0], #4 @ 0x04903004 load point x-pos into R3
 			ADDPL R9, #1 @ d0 >= d1, increment centroid 1 count
 			ADDMI R8, #1 @ d0 < d1, increment centroid 0 count
 
-		SUBS R2, #1 @ 0x02522001 decrement loop counter
+		SUBS R2, #1 @ 0x02520001 decrement loop counter
 		BGT loop @ loop 8 times
 
 		CMP R8, R9 @ 0x01580009 R8 - R9 c0 - c1
