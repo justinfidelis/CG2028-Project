@@ -34,36 +34,31 @@ classification:
 		MOV R9, #0 @ init count of points classified as 1
 
 @ write asm function body here
-loop:
-		@ load point and centroid positions from memory
-		LDR R3, [R0], #4 @ 0x04903004 load point x-pos into R3
+loop:	LDR R3, [R0], #4 @ 0x04903004 load point x-pos into R3
 		LDR R4, [R0], #4 @ 0x04904004 load point y-pos into R4
 
 		@calculate squared Euclidean distance between point and centroid 0
 		LDR R5, [R1] @ load centroid 0 x-pos into R5
-		LDR R6, [R1, #4] @ load centroid 0 y-pos into R6
+		LDR R6, [R1, #4] @ load centroid 0 x-pos into R6
 
-		@ calculate square of difference in x-pos and y-pos
 		SUB R5, R3 @ 0x00455003 difference in x-pos
 		SUB R6, R4 @ difference in y-pos
 		MUL	R5, R5 @ squared x distance
 		MUL	R6, R6 @ squared y distance
 
-		ADD R7, R5, R6 @ 0x00857006 place squared Euclidean distance in R7
+		ADD R7, R5, R6 @ 0x00857006 squared Euclidean distance
 
 		@ calculate squared Euclidean distance between point and centroid 1
 		LDR R5, [R1, #8] @ 0x05915008 load centroid 1 x-pos into R5
 		LDR R6, [R1, #12] @ 0x0591600C load centroid 1 x-pos into R6
 
-		@ calculate square of difference in x-pos and y-pos
 		SUB R5, R3 @ difference in x-pos
 		SUB R6, R4 @ difference in y-pos
 		MUL	R5, R5 @ squared x distance
 		MUL	R6, R6 @ squared y distance
 
-		ADD R6, R5 @ place squared Euclidean distance in R6
+		ADD R6, R5, R6 @ squared Euclidean distance
 
-		@ compare distance to the 2 centroids
 		CMP R7, R6 @ 0x01570006 R7 - R6, d0 - d1
 		ITE PL
 			ADDPL R9, #1 @ d0 >= d1, increment centroid 1 count

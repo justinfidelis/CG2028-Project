@@ -1,6 +1,6 @@
-15:34:22 **** Incremental Build of configuration Debug for project Lib_CMSISv1p30_LPC17xx ****
+11:02:17 **** Build of configuration Debug for project Lib_CMSISv1p30_LPC17xx ****
 make all 
 make: Nothing to be done for `all'.
 
-15:34:22 Build Finished (took 126ms)
+11:02:18 Build Finished (took 1s.394ms)
 

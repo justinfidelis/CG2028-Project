@@ -58,17 +58,17 @@
   46 00a8 00000000 		.word	0
   47 00ac 0000E03F 		.word	1071644672
   48 00b0 00000000 		.word	0
-  49 00b4 00002040 		.word	1075838976
+  49 00b4 00000040 		.word	1073741824
   50 00b8 00000000 		.word	0
   51 00bc 00002040 		.word	1075838976
   52 00c0 00000000 		.word	0
-  53 00c4 00000840 		.word	1074266112
+  53 00c4 00001440 		.word	1075052544
   54 00c8 00000000 		.word	0
   55 00cc 00002240 		.word	1075970048
   56 00d0 00000000 		.word	0
   57 00d4 00001840 		.word	1075314688
   58 00d8 00000000 		.word	0
-  59 00dc 00000000 		.word	0
+  59 00dc 0000F83F 		.word	1073217536
   60 00e0 00000000 		.word	0
   61 00e4 00001040 		.word	1074790400
   62 00e8 00000000 		.word	0
@@ -135,9 +135,9 @@
   15:../src/main.c ****             {10.0, 2.0},
   16:../src/main.c ****             {9.0, 5.0},
   17:../src/main.c ****             {4.0, 0.5},
-  18:../src/main.c ****             {8.0, 8.0},
-  19:../src/main.c ****             {3.0, 9.0},
-  20:../src/main.c ****             {6.0, 0.0},
+  18:../src/main.c ****             {2.0, 8.0},
+  19:../src/main.c ****             {5.0, 9.0},
+  20:../src/main.c ****             {6.0, 1.5},
   21:../src/main.c ****             {4.0, 0.5}};
   22:../src/main.c **** 
   23:../src/main.c **** 
@@ -667,17 +667,17 @@
  557              	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\justi\AppData\Local\Temp\cch3AgOd.s:21     .rodata:00000000 $d
-C:\Users\justi\AppData\Local\Temp\cch3AgOd.s:22     .rodata:00000000 .LC2
-C:\Users\justi\AppData\Local\Temp\cch3AgOd.s:25     .rodata:0000001c .LC3
-C:\Users\justi\AppData\Local\Temp\cch3AgOd.s:28     .rodata:00000044 .LC4
-C:\Users\justi\AppData\Local\Temp\cch3AgOd.s:31     .rodata:00000070 .LC0
-C:\Users\justi\AppData\Local\Temp\cch3AgOd.s:65     .rodata:000000f0 .LC1
-C:\Users\justi\AppData\Local\Temp\cch3AgOd.s:75     .text.main:00000000 $t
-C:\Users\justi\AppData\Local\Temp\cch3AgOd.s:80     .text.main:00000000 main
-C:\Users\justi\AppData\Local\Temp\cch3AgOd.s:323    .text.classification_cCode:00000000 classification_cCode
-C:\Users\justi\AppData\Local\Temp\cch3AgOd.s:314    .rodata:00000110 .LC5
-C:\Users\justi\AppData\Local\Temp\cch3AgOd.s:318    .text.classification_cCode:00000000 $t
+C:\Users\justi\AppData\Local\Temp\cc1GEyYh.s:21     .rodata:00000000 $d
+C:\Users\justi\AppData\Local\Temp\cc1GEyYh.s:22     .rodata:00000000 .LC2
+C:\Users\justi\AppData\Local\Temp\cc1GEyYh.s:25     .rodata:0000001c .LC3
+C:\Users\justi\AppData\Local\Temp\cc1GEyYh.s:28     .rodata:00000044 .LC4
+C:\Users\justi\AppData\Local\Temp\cc1GEyYh.s:31     .rodata:00000070 .LC0
+C:\Users\justi\AppData\Local\Temp\cc1GEyYh.s:65     .rodata:000000f0 .LC1
+C:\Users\justi\AppData\Local\Temp\cc1GEyYh.s:75     .text.main:00000000 $t
+C:\Users\justi\AppData\Local\Temp\cc1GEyYh.s:80     .text.main:00000000 main
+C:\Users\justi\AppData\Local\Temp\cc1GEyYh.s:323    .text.classification_cCode:00000000 classification_cCode
+C:\Users\justi\AppData\Local\Temp\cc1GEyYh.s:314    .rodata:00000110 .LC5
+C:\Users\justi\AppData\Local\Temp\cc1GEyYh.s:318    .text.classification_cCode:00000000 $t
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
